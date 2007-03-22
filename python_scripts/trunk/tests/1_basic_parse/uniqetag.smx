@@ -1,0 +1,7 @@
+xsd:* **>
+    child1  attrib='' >
+    meh " this is a PI tag " ?>
+    " cow a bunga " !>
+    " Meep-a
+    loo
+    zzAA!! " >>

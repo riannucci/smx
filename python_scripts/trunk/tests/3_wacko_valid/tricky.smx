@@ -1,0 +1,15 @@
+smx """
+custom_sym start="<!" end="]>" sym="]>" parse="true" > 
+custom_sym start="<!" end=">" sym="!>" parse="false" >
+""" ?> # attempt to smx parse inside the text of this tag when parse="true"
+DOCTYPE """ test [  
+ELEMENT " test (#PCDATA)" !>
+ENTITY " % xx '&#37;zz;'" !>
+ENTITY ''' % zz '&#60;!ENTITY tricky "error-prone"''' !> 
+"%xx;"
+""" ]>
+:test >
+    this is a bunch od text with a > in it.  On interpret, will throw an error
+    "This sample shows a &tricky; method."
+# This is probably not a task for SMX, but we support it anyway.
+

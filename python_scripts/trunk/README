@@ -1,0 +1,21 @@
+Simple Markup for XML (SMX or SiMpleX)
+
+SMX is a lean and mean version of XML without all the syntactical redundancy 
+and the ability to programatically generate unique attributes for elements.
+
+As a senior project, I will do the following:
+    * Define the SMX language
+        * Allow smx PIs at beginning to specify other tag containers
+        * Formal grammar specification
+        * Human tutorial on writing SMX
+        * Support for ALL XML features (>, ?>, and C> meaning element, PI, and CDATA respectively)
+        * Allow for wildcard replacement tags (*> and **> meaning children and descendants)
+        * Allow for multitagging (tag1 && tag2 && tag3 > results in nested tags)
+    * Create a python script to convert SMX to XML
+    * Create a python script to convert XML to SMX 
+    * Web portal for above two
+    * Create a java library for parsing SMX directly into DOM
+    * Create a java library for parsing DOM to SMX
+    * Create IDE helpers:
+        * Code editor plugin for editing SMX in Eclipse, NetBeans
+        * Syntax highlighting and folding for VIM, EMACS

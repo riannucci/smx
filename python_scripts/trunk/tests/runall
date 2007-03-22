@@ -1,0 +1,17 @@
+#!/bin/bash 
+
+if [ ! $1 ]; then
+    FILE="../bin/parse.py";
+    echo "setting sourcefile to "$FILE;
+else
+    FILE=$1;
+fi
+
+for i in */*.smx;
+do
+	echo ==== $i ====
+    cor=`dirname $i`/`basename $i .smx`.correct 
+    touch $cor
+	./$FILE $i | diff -N -w $cor - #  > $cor
+done
+

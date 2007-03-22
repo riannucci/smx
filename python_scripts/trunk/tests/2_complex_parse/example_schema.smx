@@ -1,0 +1,43 @@
+xsd:* **>
+    schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" >
+        annotation >
+            documentation xml:lang="en" >
+                Purchase order schema for Example.com.
+                Copyright 2000 Example.com. All rights reserved.
+        element name="purchaseOrder" type="PurchaseOrderType" >
+        element name="comment" type="xsd:string" >
+
+        complexType name="PurchaseOrderType" >
+            sequence >
+                element *>
+                    name="shipTo" type="USAddress" >
+                    name="billTo" type="USAddress" >
+                    ref="comment" minOccurs="0" >
+                    name="items" type="Items" >
+            attribute name="orderDate" type="xsd:date" >
+
+        complexType name="USAddress" >
+            sequence >
+                element type="xsd:string" *>
+                    name="name" >
+                    name="street" >
+                    name="city" >
+                    name="state" >
+                element name="zip" type="xsd:decimal" >
+            attribute name="country" type="xsd:NMTOKEN" fixed="US" >
+
+        complexType name="Items" >
+            sequence && element name="item" minOccurs="0" maxOccurs="unbounded" && complexType >
+                sequence >
+                    element *>
+                        name="productName" type="xsd:string" >
+                        name="quantity" >
+                            simpleType && restriction base="xsd:positiveInteger" >
+                                maxExclusive value="100" >
+                        name="USPrice" type="xsd:decimal" >
+                        ref="comment" minOccurs="0" >
+                        name="shipDate" type="xsd:date" minOccurs="0" >
+                attribute name="partNum" type="SKU" use="required" >
+
+        # Stock Keeping Unit, a code for identifying products
+        simpleType name="SKU" && restriction base="xsd:string" && pattern value="\d{3}-[A-Z]{2}">

@@ -1,0 +1,4 @@
+hello_world ns:type="""fu"n!""" >
+    tag1 >
+        ns1:ns2:tag1tag1 attrib="valu\"e!" >
+    nerk_ >
