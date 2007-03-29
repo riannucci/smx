@@ -1,0 +1,15 @@
+smx "testing data" ?>
+xml "more testing data" ?>
+xml "more1 testing data" ?>
+xml "\"more2 t\"\"esting data" ?>
+happy:root at1="\x40moo" && cow fun:attY="meep!" && meep >
+    fleem
+    tag2 moo="fleem" monkey="fart" att2="""\000mongolian pie monkies""" && em>
+        sub_monkey && sub_monkey2 > hello
+    meep **> # meep
+        a && b && c >
+        woot
+        >
+    cow > abunga
+
+

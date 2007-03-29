@@ -1,0 +1,17 @@
+root
+  `-- cow
+        `-- meep
+              |-- fleem
+              |-- tag2
+              |     `-- em
+              |          `-- sub_monkey
+              |                     `-- sub_monkey2
+              |                                 `-- hello
+              |-- meep # meep
+              |     |-- a
+              |     |   `-- b
+              |     |       `-- c
+              |     |-- woot
+              |     `-- <blank>
+              `-- cow
+                    `-- abunga
