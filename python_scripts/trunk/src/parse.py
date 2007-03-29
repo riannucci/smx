@@ -7,38 +7,6 @@ from simpleparse.stt.TextTools import TextTools
 from sys import exit
 
 class smxProcessor(Processor):
-    def levelMethod(self, taglist, txt, s, f, sub):
-        dpth = f-s
-        if dpth > self.curdpth():
-            self.level_stack += [(dpth, self.curlvl()+1)]
-            taglist += ["indent"]
-        elif dpth < self.curdpth():
-            tmp = self.level_stack
-            if len(self.level_pile_stk) <> 0:
-                taglist += ['dedent']*self.level_pile_stk[-1]
-                del self.level_pile_stk[-1]
-            while len(tmp) > 0 and dpth < self.curdpth(tmp):
-                del tmp[-1]
-                taglist += ['dedent']
-            if len(tmp) == 0 or dpth <> self.curdpth(tmp):
-                print "\nIndentation error in", argv[1]+":"+str(self.line)
-                print "unindent does not match any outer indentation level"
-                exit()
-            else:
-                self.level_stack = tmp  
-        elif self.close and len(self.level_pile_stk) <> 0:
-            taglist += ['dedent']*self.level_pile_stk[-1]
-            del self.level_pile_stk[-1]
-        self.close = False
-
-    def curlvl(self, stk=None):
-        if stk == None: stk = self.level_stack
-        return stk[-1][1]
-
-    def curdpth(self, stk=None):
-        if stk == None: stk = self.level_stack
-        return stk[-1][0]
-    
     def EOLMethod(self, taglist, txt, s, f, sub):
         self.line += 1
     
@@ -48,10 +16,38 @@ class smxProcessor(Processor):
     def textMethod(self, taglist, txt, s, f, sub):
         taglist += [('text', txt[s:f])]
 
-    def bodyMethod(self, taglist, txt, s, f, sub):
-        taglist += [('body',s,f,sub)]
-        for x in self.level_stack:
-            sub += ['dedent']
+    def commentMethod(self, taglist, txt, s, f, sub):
+        txt = txt[s:f].strip()
+        taglist += [('comment', txt[1:].strip())]
+
+    def attributeMethod(self, taglist, txt, s, f, sub):
+        taglist += [('attribute', sub[0], sub[1])]
+
+    def ns_nameMethod(self, taglist, txt, s, f, sub):
+        taglist += [('ns_name', sub[0], sub[1])]
+
+    def levelMethod(self, taglist, txt, s, f, sub):
+        lvl_stk = self.level_stack
+        depth = f - s
+        if depth > lvl_stk[-1]:
+            lvl_stk += [depth]
+            taglist += ['indent']
+        elif depth < lvl_stk[-1]:
+            while len(lvl_stk) > 0 and depth < lvl_stk[-1]:
+                taglist += ['dedent']
+                del lvl_stk[-1]
+            while len(lvl_stk) > 0 and depth == lvl_stk[-2]:
+                taglist += ['dedent']
+                del lvl_stk[-1]
+            if len(lvl_stk) == 0 or depth <> lvl_stk[-1]:
+                print "\nIndentation error in", argv[1]+":"+str(self.line)
+                print "unindent does not match any outer indentation level"
+                exit()
+        elif self.close:
+            while len(lvl_stk) > 0 and depth == lvl_stk[-2]:
+                taglist += ['dedent']
+                del lvl_stk[-1]
+        self.close = False
 
     def tailMethod(self, taglist, txt, s, f, sub):
         if s <> f:
@@ -61,30 +57,25 @@ class smxProcessor(Processor):
                 taglist += ['dedent']
             else:
                 taglist += sub
-                if self.close and len(self.level_pile_stk) <> 0:
-                    for x in xrange(self.level_pile_stk[-1]):
-                        taglist += ['dedent']
-                    del self.level_pile_stk[-1]
-                
-    def attributeMethod(self, taglist, txt, s, f, sub):
-        taglist += [('attribute', sub[0], sub[1])]
 
-    def name_tagmMethod(self, taglist, txt, s, f, sub):
+    def tagMethod(self, taglist, txt, s, f, sub):
+        extra = sub[1:]
+        sub = sub[0][3]
         for x in sub[:-1]:
             taglist += [x, 'indent']
         taglist += [sub[-1]]
         if len(sub) > 1:
-            self.level_pile_stk += [len(sub)]
+            self.level_stack += [self.level_stack[-1]]*(len(sub)-1)
             self.close = True
-        print self.level_pile_stk
+        taglist += extra
 
-    def ns_nameMethod(self, taglist, txt, s, f, sub):
-        taglist += [('ns_name', sub[0], sub[1])]
+    def bodyMethod(self, taglist, txt, s, f, sub):
+        taglist += [('body',s,f,sub)]
+        sub += ['dedent']*(len(self.level_stack)-1)
 
-    close = False
-    level_stack = [(0,0)]
-    level_pile_stk = []
+    level_stack = [0]
     line = 0
+    close = False
 
     _m_body   = bodyMethod
     _m_string   = stringMethod
@@ -97,9 +88,10 @@ class smxProcessor(Processor):
     _m_star_tag_tail = tailMethod
     _m_ns_name  = ns_nameMethod
     _m_attribute = attributeMethod
-    _m_name_tagm = name_tagmMethod
-    _m_el_tagm = name_tagmMethod
-    _m_star_tagm = name_tagmMethod
+    _m_comment = commentMethod
+    _m_name_tag = tagMethod
+    _m_el_tag = tagMethod
+    _m_star_tag = tagMethod
     
 
 def parse(str):
