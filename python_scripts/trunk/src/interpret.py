@@ -18,8 +18,19 @@ def mkpreamble(cst_pre):
     return pre
 
 def mkbody(cst_body):
-   pp( cst_body )
-   pass
+    stack = []
+    lvl = 0
+    cur = None
+    for x in cst_body[1]:
+        if x == 'indent':
+            lvl += 1
+        elif x == 'dedent':
+            lvl -= 1
+            print '    '*lvl, '.'
+        else:
+            print '    '*lvl, x
+
+    return None
 
 
 

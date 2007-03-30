@@ -27,7 +27,9 @@ class smxProcessor(Processor):
         taglist += [('comment', txt[1:].strip())]
 
     def attributeMethod(self, taglist, txt, s, f, sub):
-        taglist += [('attribute', sub[0], sub[1])]
+        name = (sub[0][1], sub[0][2])
+        value = sub[1][1]
+        taglist += [(name, value)]
 
     def ns_nameMethod(self, taglist, txt, s, f, sub):
         taglist += [('ns_name', sub[0], sub[1])]
@@ -99,7 +101,14 @@ class smxProcessor(Processor):
         self.tag1Method('el', taglist, txt, s, f, sub)
 
     def tag1Method(self, typ, taglist, txt, s, f, sub):
-        taglist += [(typ+'_tag1', sub)]
+        attrs = []
+        nsname = None
+        for x in sub:
+            if x[0] in ['ns_name', 'ns_wild_name']:
+                nsname = (sub[0][1], sub[0][2])
+            else:
+                attrs += [x]
+        taglist += [(typ+'_tag1', nsname, attrs)]
 
     def closerMethod(self, taglist, txt, s, f, sub):
         taglist += [('closer', txt[s:f])]

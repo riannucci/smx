@@ -18,7 +18,7 @@ blah ndla
             kksla
             """ C> # mooo!
         help
-        >
+        qual:ify:atr1="valu1" atr2="blah" >
             stuff
         " more ctag " C>
 
