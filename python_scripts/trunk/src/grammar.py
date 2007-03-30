@@ -34,7 +34,9 @@ el_tag1             := (attributes/((ns_name),(SR,attributes)?))?, SO
 el_tag_tail         := (str/text)?, comment?
 >el_extra<          := ('&&', SO, el_tag1)*
 
-cust_tag            := (ns_name)? , SO, str, SO, tag_end, comment?, EOL!
+cust_tag            := nameo , SO, str, SO, tag_end, comment?, EOL!
+
+nameo               := name?
 
 comment             := SO,'#',-'\n'*
 
@@ -50,11 +52,11 @@ ns                  := (((let/'_'),(let/dig/'_')*)?,':')*
 attribute           := ns_name, SO, EQ, SO, str
 >attributes<        := attribute, (SO,attribute)*
 >star_attributes<   := star_attribute, (SO, star_attribute)*
-star_attribute      := ns, name, SO, EQ, SO, (counter/str)
+star_attribute      := ns_name, SO, EQ, SO, (counter/str)
 text                := (let/dig/punctchar/S)+
 >str<               := string
 <punctchar>         := []!"$%&\'()*+,-./:;<=>?@[\\^_`{|}~]
-EOL                 := SO, '\n'
+EOL                 := SO, ('\r\n'/'\r'/'\n')
 <EQ>                := '='
 name                := (let/'_'),(name_char)*
 <let>               := letter

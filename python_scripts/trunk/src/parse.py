@@ -5,6 +5,7 @@ import simpleparse
 from simpleparse.processor import Processor
 from simpleparse.stt.TextTools import TextTools
 from sys import exit
+import re
 
 class IndentError:
     pass
@@ -15,8 +16,7 @@ class smxProcessor(Processor):
     
     def stringMethod(self, taglist, txt, s, f, sub):
         s = eval(txt[s:f])
-        for x in s:
-            self.line += 1 if x == '\n' else 0
+        self.line += len(re.findall("\r\n|\r|\n", s))
         taglist += [('str', s)]
 
     def textMethod(self, taglist, txt, s, f, sub):
@@ -27,6 +27,7 @@ class smxProcessor(Processor):
         taglist += [('comment', txt[1:].strip())]
 
     def attributeMethod(self, taglist, txt, s, f, sub):
+        print sub
         name = (sub[0][1], sub[0][2])
         value = sub[1][1]
         taglist += [(name, value)]
@@ -122,10 +123,11 @@ class smxProcessor(Processor):
             exit()
         else:
             pass # recurse into SMX definitions and extract information
-        taglist += [('smx_pi',sub[0][1])]
+        taglist += [('pi_tag', 'smx',sub[0][1])]
 
     def pi_tagMethod(self, taglist, txt, s, f, sub):
-        taglist += [('smx_pi',sub[0], sub[1][1])]
+        taglist += [('pi_tag', sub[0], sub[1][1])]
+        taglist += sub[2:]
         self.oneline = True
 
     def preambleMethod(self, taglist, txt, s, f, sub):
@@ -137,12 +139,30 @@ class smxProcessor(Processor):
             taglist += sub[1:]
         self.oneline = True
 
+    def cust_tagMethod(self, taglist, txt, s, f, sub):
+        name = sub[0]
+        data = sub[1][0]
+        end = sub[2]
+        taglist += [('cust_tag', name, data, end)]
+        taglist += sub[3:]
+
+    def nameoMethod(self, taglist, txt, s, f, sub):
+        if len(sub) == 0:
+            taglist += ['']
+        else:
+            taglist += [sub[0]]
+    
+
     level_stack = [0]
-    line = 0
+    line = 1
     close = False
     oneline = False
     root_proc = False
 
+    _m_wild     = TextTools.AppendMatch
+    _m_nameo    = nameoMethod
+    _m_cust_tag = cust_tagMethod
+    _m_tag_end = TextTools.AppendMatch
     _m_c_tag  = c_tagMethod
     _m_body   = bodyMethod
     _m_string   = stringMethod
@@ -156,6 +176,7 @@ class smxProcessor(Processor):
     _m_ns_name  = ns_nameMethod
     _m_ns_wild_name  = ns_wild_nameMethod
     _m_attribute = attributeMethod
+    _m_star_attribute = attributeMethod
     _m_comment = commentMethod
     _m_name_tag = tagMethod
     _m_el_tag = tagMethod
