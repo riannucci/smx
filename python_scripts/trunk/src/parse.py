@@ -26,6 +26,9 @@ class smxProcessor(Processor):
     def ns_nameMethod(self, taglist, txt, s, f, sub):
         taglist += [('ns_name', sub[0], sub[1])]
 
+    def ns_wild_nameMethod(self, taglist, txt, s, f, sub):
+        taglist += [('ns_wild_name', sub[0], sub[1])]
+
     def levelMethod(self, taglist, txt, s, f, sub):
         lvl_stk = self.level_stack
         depth = f - s
@@ -70,8 +73,34 @@ class smxProcessor(Processor):
         taglist += extra
 
     def bodyMethod(self, taglist, txt, s, f, sub):
-        taglist += [('body',s,f,sub)]
         sub += ['dedent']*(len(self.level_stack)-1)
+
+        # now do magic
+        taglist += [('body',s,f,sub)]
+
+    def name1Method(self, taglist, txt, s, f, sub):
+        self.tag1Method('name', taglist, txt, s, f, sub)
+
+    def star1Method(self, taglist, txt, s, f, sub):
+        self.tag1Method('star', taglist, txt, s, f, sub)
+
+    def el1Method(self, taglist, txt, s, f, sub):
+        self.tag1Method('el', taglist, txt, s, f, sub)
+
+    def tag1Method(self, typ, taglist, txt, s, f, sub):
+        taglist += [(typ+'_tag1', sub)]
+
+    def closerMethod(self, taglist, txt, s, f, sub):
+        taglist += [('closer', txt[s:f])]
+
+    def smx_piMethod(self, taglist, txt, s, f, sub):
+        taglist += [('smx_pi',sub[0][1])]
+
+    def pi_tagMethod(self, taglist, txt, s, f, sub):
+        taglist += [('smx_pi',sub[0], sub[1][1])]
+
+    def preambleMethod(self, taglist, txt, s, f, sub):
+        taglist += [('preamble',sub)]
 
     level_stack = [0]
     line = 0
@@ -87,21 +116,30 @@ class smxProcessor(Processor):
     _m_el_tag_tail = tailMethod
     _m_star_tag_tail = tailMethod
     _m_ns_name  = ns_nameMethod
+    _m_ns_wild_name  = ns_wild_nameMethod
     _m_attribute = attributeMethod
     _m_comment = commentMethod
     _m_name_tag = tagMethod
     _m_el_tag = tagMethod
     _m_star_tag = tagMethod
+    _m_star_tag1 = star1Method
+    _m_el_tag1 = el1Method
+    _m_name_tag1 = name1Method
+    _m_el_closer = closerMethod
+    _m_star_closer = closerMethod
+    _m_preamble = preambleMethod
+    _m_smx_pi = smx_piMethod
+    _m_pi_tag = pi_tagMethod
     
 
 def parse(str):
     try:
-        rep = parser.parse(ex2, processor = smxProcessor())
+        rep = parser.parse(str, processor = smxProcessor())
     except simpleparse.error.ParserSyntaxError, x:
         print x
         return None
 
-    return rep
+    return rep[1][:-1]
 
 if __name__ == "__main__":
     from sys import argv
