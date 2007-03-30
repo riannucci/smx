@@ -53,7 +53,7 @@ attribute           := ns_name, SO, EQ, SO, str
 star_attribute      := ns, name, SO, EQ, SO, (counter/str)
 text                := (let/dig/punctchar/S)+
 >str<               := string
-<punctchar>         := punctuationchar
+<punctchar>         := []!"$%&\'()*+,-./:;<=>?@[\\^_`{|}~]
 EOL                 := SO, '\n'
 <EQ>                := '='
 name                := (let/'_'),(name_char)*

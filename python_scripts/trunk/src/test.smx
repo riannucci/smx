@@ -9,7 +9,7 @@ happy:root at1="\x40moo" && cow fun:attY="meep!" && meep >
     meep **> # meep
         a && b && c >
         woot
-        >
+        > inline # with comment
     cow >
         abunga
         """ blah
@@ -18,5 +18,8 @@ blah ndla
             kksla
             """ C> # mooo!
         help
+        >
+            stuff
+        " more ctag " C>
 
 

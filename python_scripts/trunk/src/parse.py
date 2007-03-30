@@ -6,12 +6,18 @@ from simpleparse.processor import Processor
 from simpleparse.stt.TextTools import TextTools
 from sys import exit
 
+class IndentError:
+    pass
+
 class smxProcessor(Processor):
     def EOLMethod(self, taglist, txt, s, f, sub):
         self.line += 1
     
     def stringMethod(self, taglist, txt, s, f, sub):
-        taglist += [('str',eval(txt[s:f]))]
+        s = eval(txt[s:f])
+        for x in s:
+            self.line += 1 if x == '\n' else 0
+        taglist += [('str', s)]
 
     def textMethod(self, taglist, txt, s, f, sub):
         taglist += [('text', txt[s:f])]
@@ -33,8 +39,13 @@ class smxProcessor(Processor):
         lvl_stk = self.level_stack
         depth = f - s
         if depth > lvl_stk[-1]:
-            lvl_stk += [depth]
-            taglist += ['indent']
+            if self.oneline:
+                print "\nIndentation error on line",self.line
+                print "Unexpected Indent after oneline tag"
+                exit()
+            else:
+                lvl_stk += [depth]
+                taglist += ['indent']
         elif depth < lvl_stk[-1]:
             while len(lvl_stk) > 0 and depth < lvl_stk[-1]:
                 taglist += ['dedent']
@@ -43,14 +54,15 @@ class smxProcessor(Processor):
                 taglist += ['dedent']
                 del lvl_stk[-1]
             if len(lvl_stk) == 0 or depth <> lvl_stk[-1]:
-                print "\nIndentation error in", argv[1]+":"+str(self.line)
+                print "\nIndentation error on line",self.line
                 print "unindent does not match any outer indentation level"
-                exit()
+                exit()                                                           
         elif self.close:
             while len(lvl_stk) > 0 and depth == lvl_stk[-2]:
                 taglist += ['dedent']
                 del lvl_stk[-1]
         self.close = False
+        self.oneline = False
 
     def tailMethod(self, taglist, txt, s, f, sub):
         if s <> f:
@@ -58,6 +70,7 @@ class smxProcessor(Processor):
                 taglist += ['indent']
                 taglist += sub
                 taglist += ['dedent']
+                self.oneline = True
             else:
                 taglist += sub
 
@@ -74,9 +87,7 @@ class smxProcessor(Processor):
 
     def bodyMethod(self, taglist, txt, s, f, sub):
         sub += ['dedent']*(len(self.level_stack)-1)
-
-        # now do magic
-        taglist += [('body',s,f,sub)]
+        taglist += [('body',sub)]
 
     def name1Method(self, taglist, txt, s, f, sub):
         self.tag1Method('name', taglist, txt, s, f, sub)
@@ -102,10 +113,17 @@ class smxProcessor(Processor):
     def preambleMethod(self, taglist, txt, s, f, sub):
         taglist += [('preamble',sub)]
 
+    def c_tagMethod(self, taglist, txt, s, f, sub):
+        taglist += [('ctag',sub[0][1])]
+        if len(sub) > 1:
+            taglist += sub[1:]
+
     level_stack = [0]
     line = 0
     close = False
+    oneline = False
 
+    _m_c_tag  = c_tagMethod
     _m_body   = bodyMethod
     _m_string   = stringMethod
     _m_EOL   = EOLMethod
