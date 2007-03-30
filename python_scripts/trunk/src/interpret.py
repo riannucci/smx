@@ -24,7 +24,6 @@ def mkbody(cst_body):
     for x in cst_body[1]:
         if x == 'indent':
             lvl += 1
-            print '    '*lvl, '.'
         elif x == 'dedent':
             lvl -= 1
             print '    '*lvl, '.'
