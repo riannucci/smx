@@ -20,7 +20,7 @@ def mkpreamble(cst_pre):
 def mkbody(cst_body):
     stack = []
     lvl = 0
-    cur = None
+    cur = []
     for x in cst_body[1]:
         if x == 'indent':
             lvl += 1

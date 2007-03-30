@@ -21,5 +21,6 @@ blah ndla
         qual:ify:atr1="valu1" atr2="blah" >
             stuff
         " more ctag " C>
-
+    child " more datas" ?>
+    broken tag="true">
 

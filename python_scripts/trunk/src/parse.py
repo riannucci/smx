@@ -40,6 +40,8 @@ class smxProcessor(Processor):
     def levelMethod(self, taglist, txt, s, f, sub):
         lvl_stk = self.level_stack
         depth = f - s
+        if lvl_stk[-1] == 0:
+            self.oneline = False
         if depth > lvl_stk[-1]:
             if self.oneline:
                 print "\nIndentation error on line",self.line
@@ -114,10 +116,17 @@ class smxProcessor(Processor):
         taglist += [('closer', txt[s:f])]
 
     def smx_piMethod(self, taglist, txt, s, f, sub):
+        if not self.root_proc:
+            print "Recursing parser error in smx pi"
+            print "recursive invocations of parser in SMX_PI production."
+            exit()
+        else:
+            pass # recurse into SMX definitions and extract information
         taglist += [('smx_pi',sub[0][1])]
 
     def pi_tagMethod(self, taglist, txt, s, f, sub):
         taglist += [('smx_pi',sub[0], sub[1][1])]
+        self.oneline = True
 
     def preambleMethod(self, taglist, txt, s, f, sub):
         taglist += [('preamble',sub)]
@@ -126,11 +135,13 @@ class smxProcessor(Processor):
         taglist += [('ctag',sub[0][1])]
         if len(sub) > 1:
             taglist += sub[1:]
+        self.oneline = True
 
     level_stack = [0]
     line = 0
     close = False
     oneline = False
+    root_proc = False
 
     _m_c_tag  = c_tagMethod
     _m_body   = bodyMethod
@@ -161,7 +172,9 @@ class smxProcessor(Processor):
 
 def parse(str):
     try:
-        rep = parser.parse(str, processor = smxProcessor())
+        proc = smxProcessor()
+        proc.root_proc = True
+        rep = parser.parse(str, processor = proc)
     except simpleparse.error.ParserSyntaxError, x:
         print x
         return None
