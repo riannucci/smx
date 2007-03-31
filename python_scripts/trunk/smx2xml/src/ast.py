@@ -15,7 +15,7 @@ class PREAMBLE:
         return -1
 
     def __str__(s):
-        ret  = """<?xml version="1.0" encoding="UTF-8" ?>\n"""
+        ret  = """<?xml version='1.0' encoding='UTF-8' ?>\n"""
         ret += str(s.smx_pi) if s.smx_pi else ""
         ret += ''.join([str(x) for x in s.extra_pi])
         return ret

@@ -1,7 +1,4 @@
 smx "testing data" ?>
-xml "more testing data" ?>
-xml "more1 testing data" ?>
-xml "\"more2 t\"\"esting data" ?>
 happy:root at1="\x40moo" && cow fun:attY="meep!" && meep >
     fleem
     tag2 moo="fleem" monkey="meh" att2="""\000mongolian pie monkies""" && em>
@@ -18,11 +15,11 @@ blah ndla
             kksla
             """ C> # mooo!
         help
+    flab  *>
         qual:ify:atr1="valu1" atr2="blah" >
             stuff
         " more ctag " C>
-    child " more datas" ?> # with comment
+    child " more datas" ?>
     broken tag="true">
-        ruby "ruby code" %>
-            "other code" ~<> # commentator
+
 
