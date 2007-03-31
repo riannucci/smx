@@ -63,6 +63,7 @@ def mkbody(cst_body):
 
             stk[-1].children += [val]
 
+    root.collapse()
     return root
 
 def mktree(cst):

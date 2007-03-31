@@ -27,7 +27,6 @@ class smxProcessor(Processor):
         taglist += [('comment', txt[1:].strip())]
 
     def attributeMethod(self, taglist, txt, s, f, sub):
-        print sub
         name = (sub[0][1], sub[0][2])
         value = sub[1][1]
         taglist += [(name, value)]
@@ -36,7 +35,9 @@ class smxProcessor(Processor):
         taglist += [('ns_name', sub[0], sub[1])]
 
     def ns_wild_nameMethod(self, taglist, txt, s, f, sub):
-        taglist += [('ns_wild_name', sub[0], sub[1])]
+        taglist += [('ns_wild_name', 
+                sub[0] if sub[1] <> ':' else '',
+                sub[1] if sub[1] <> '*' else '')]
 
     def levelMethod(self, taglist, txt, s, f, sub):
         lvl_stk = self.level_stack
@@ -45,7 +46,7 @@ class smxProcessor(Processor):
             self.oneline = False
         if depth > lvl_stk[-1]:
             if self.oneline:
-                print "\nIndentation error on line",self.line
+                print "Indentation error on line",self.line
                 print "Unexpected Indent after oneline tag"
                 exit()
             else:
@@ -59,7 +60,7 @@ class smxProcessor(Processor):
                 taglist += ['dedent']
                 del lvl_stk[-1]
             if len(lvl_stk) == 0 or depth <> lvl_stk[-1]:
-                print "\nIndentation error on line",self.line
+                print "Indentation error on line",self.line
                 print "unindent does not match any outer indentation level"
                 exit()                                                           
         elif self.close:
