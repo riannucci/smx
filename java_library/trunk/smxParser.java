@@ -1,4 +1,4 @@
-// $ANTLR 3.0.1 /Users/robertiannucci/antlr/test/smx10/smx.g 2008-02-12 12:55:22
+// $ANTLR 3.0.1 smx.g 2008-02-12 13:32:22
 
 	import org.w3c.dom.*;
 	import javax.xml.parsers.*;
@@ -61,7 +61,7 @@ public class smxParser extends Parser {
     }
 
     public String[] getTokenNames() { return tokenNames; }
-    public String getGrammarFileName() { return "/Users/robertiannucci/antlr/test/smx10/smx.g"; }
+    public String getGrammarFileName() { return "smx.g"; }
 
 
     	private String ws_atype = null;
@@ -249,7 +249,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start smx
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:214:1: smx[DocumentBuilderFactory dbf] returns [Document retdoc] : a= line[new ContextObj(), curdoc] ({...}? =>b= line[new ContextObj(), curdoc ] )? EOF -> {has_smx_tag}? $b -> $a;
+    // smx.g:214:1: smx[DocumentBuilderFactory dbf] returns [Document retdoc] : a= line[new ContextObj(), curdoc] ({...}? =>b= line[new ContextObj(), curdoc ] )? EOF -> {has_smx_tag}? $b -> $a;
     public final smx_return smx(DocumentBuilderFactory dbf) throws RecognitionException {
         smx_return retval = new smx_return();
         retval.start = input.LT(1);
@@ -276,8 +276,8 @@ public class smxParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 1) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:226:2: (a= line[new ContextObj(), curdoc] ({...}? =>b= line[new ContextObj(), curdoc ] )? EOF -> {has_smx_tag}? $b -> $a)
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:227:2: a= line[new ContextObj(), curdoc] ({...}? =>b= line[new ContextObj(), curdoc ] )? EOF
+            // smx.g:226:2: (a= line[new ContextObj(), curdoc] ({...}? =>b= line[new ContextObj(), curdoc ] )? EOF -> {has_smx_tag}? $b -> $a)
+            // smx.g:227:2: a= line[new ContextObj(), curdoc] ({...}? =>b= line[new ContextObj(), curdoc ] )? EOF
             {
             pushFollow(FOLLOW_line_in_smx119);
             a=line(new ContextObj(),  curdoc);
@@ -305,7 +305,7 @@ public class smxParser extends Parser {
             		}
             	}
             	
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:249:2: ({...}? =>b= line[new ContextObj(), curdoc ] )?
+            // smx.g:249:2: ({...}? =>b= line[new ContextObj(), curdoc ] )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -314,7 +314,7 @@ public class smxParser extends Parser {
             }
             switch (alt1) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:249:3: {...}? =>b= line[new ContextObj(), curdoc ]
+                    // smx.g:249:3: {...}? =>b= line[new ContextObj(), curdoc ]
                     {
                     if ( !(has_smx_tag) ) {
                         throw new FailedPredicateException(input, "smx", "has_smx_tag");
@@ -388,7 +388,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start line
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:257:1: line[ContextObj ctx, Node n] : (lvl= WS )? ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] ) -> ( comment )? ( tag )? ( dtag )? ( data )? ;
+    // smx.g:257:1: line[ContextObj ctx, Node n] : (lvl= WS )? ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] ) -> ( comment )? ( tag )? ( dtag )? ( data )? ;
     public final line_return line(ContextObj ctx, Node n) throws RecognitionException {
         line_return retval = new line_return();
         retval.start = input.LT(1);
@@ -414,10 +414,10 @@ public class smxParser extends Parser {
         int level=0;
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 2) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:258:20: ( (lvl= WS )? ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] ) -> ( comment )? ( tag )? ( dtag )? ( data )? )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:259:2: (lvl= WS )? ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] )
+            // smx.g:258:20: ( (lvl= WS )? ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] ) -> ( comment )? ( tag )? ( dtag )? ( data )? )
+            // smx.g:259:2: (lvl= WS )? ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] )
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:259:5: (lvl= WS )?
+            // smx.g:259:5: (lvl= WS )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -426,7 +426,7 @@ public class smxParser extends Parser {
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:259:5: lvl= WS
+                    // smx.g:259:5: lvl= WS
                     {
                     lvl=(Token)input.LT(1);
                     match(input,WS,FOLLOW_WS_in_line180); 
@@ -439,12 +439,12 @@ public class smxParser extends Parser {
             }
 
             level = lvl != null ? getLvl(lvl.getText()) : 0;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:260:2: ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] )
+            // smx.g:260:2: ( comment[n] | tag[level, ctx, n] | dtag[ctx, n] | data[n] )
             int alt3=4;
             alt3 = dfa3.predict(input);
             switch (alt3) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:260:3: comment[n]
+                    // smx.g:260:3: comment[n]
                     {
                     pushFollow(FOLLOW_comment_in_line187);
                     comment2=comment(n);
@@ -455,7 +455,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:260:16: tag[level, ctx, n]
+                    // smx.g:260:16: tag[level, ctx, n]
                     {
                     pushFollow(FOLLOW_tag_in_line192);
                     tag3=tag(level,  ctx,  n);
@@ -466,7 +466,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:260:37: dtag[ctx, n]
+                    // smx.g:260:37: dtag[ctx, n]
                     {
                     pushFollow(FOLLOW_dtag_in_line197);
                     dtag4=dtag(ctx,  n);
@@ -477,7 +477,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:260:52: data[n]
+                    // smx.g:260:52: data[n]
                     {
                     pushFollow(FOLLOW_data_in_line202);
                     data5=data(n);
@@ -492,7 +492,7 @@ public class smxParser extends Parser {
 
 
             // AST REWRITE
-            // elements: dtag, comment, tag, data
+            // elements: comment, data, dtag, tag
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -503,25 +503,25 @@ public class smxParser extends Parser {
             root_0 = (Tree)adaptor.nil();
             // 261:2: -> ( comment )? ( tag )? ( dtag )? ( data )?
             {
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:261:5: ( comment )?
+                // smx.g:261:5: ( comment )?
                 if ( stream_comment.hasNext() ) {
                     adaptor.addChild(root_0, stream_comment.next());
 
                 }
                 stream_comment.reset();
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:261:14: ( tag )?
+                // smx.g:261:14: ( tag )?
                 if ( stream_tag.hasNext() ) {
                     adaptor.addChild(root_0, stream_tag.next());
 
                 }
                 stream_tag.reset();
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:261:19: ( dtag )?
+                // smx.g:261:19: ( dtag )?
                 if ( stream_dtag.hasNext() ) {
                     adaptor.addChild(root_0, stream_dtag.next());
 
                 }
                 stream_dtag.reset();
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:261:25: ( data )?
+                // smx.g:261:25: ( data )?
                 if ( stream_data.hasNext() ) {
                     adaptor.addChild(root_0, stream_data.next());
 
@@ -556,7 +556,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start dot
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:263:1: dot : (~ NL )* ;
+    // smx.g:263:1: dot : (~ NL )* ;
     public final dot_return dot() throws RecognitionException {
         dot_return retval = new dot_return();
         retval.start = input.LT(1);
@@ -569,12 +569,12 @@ public class smxParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 3) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:263:4: ( (~ NL )* )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:263:6: (~ NL )*
+            // smx.g:263:4: ( (~ NL )* )
+            // smx.g:263:6: (~ NL )*
             {
             root_0 = (Tree)adaptor.nil();
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:263:6: (~ NL )*
+            // smx.g:263:6: (~ NL )*
             loop4:
             do {
                 int alt4=2;
@@ -587,7 +587,7 @@ public class smxParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:263:6: ~ NL
+            	    // smx.g:263:6: ~ NL
             	    {
             	    set6=(Token)input.LT(1);
             	    if ( (input.LA(1)>=TAG && input.LA(1)<=WS)||(input.LA(1)>=HASH && input.LA(1)<=ESC) ) {
@@ -635,7 +635,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start comment
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:264:1: comment[Node n] : ( HASH )+ WS d= dot NL ->;
+    // smx.g:264:1: comment[Node n] : ( HASH )+ WS d= dot NL ->;
     public final comment_return comment(Node n) throws RecognitionException {
         comment_return retval = new comment_return();
         retval.start = input.LT(1);
@@ -657,10 +657,10 @@ public class smxParser extends Parser {
         RewriteRuleSubtreeStream stream_dot=new RewriteRuleSubtreeStream(adaptor,"rule dot");
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 4) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:268:2: ( ( HASH )+ WS d= dot NL ->)
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:268:4: ( HASH )+ WS d= dot NL
+            // smx.g:268:2: ( ( HASH )+ WS d= dot NL ->)
+            // smx.g:268:4: ( HASH )+ WS d= dot NL
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:268:4: ( HASH )+
+            // smx.g:268:4: ( HASH )+
             int cnt5=0;
             loop5:
             do {
@@ -674,7 +674,7 @@ public class smxParser extends Parser {
 
                 switch (alt5) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:268:4: HASH
+            	    // smx.g:268:4: HASH
             	    {
             	    HASH7=(Token)input.LT(1);
             	    match(input,HASH,FOLLOW_HASH_in_comment241); 
@@ -753,7 +753,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start children
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:271:1: children[int level, ContextObj ctx, Node n] returns [int num] : ( WS )? (childs+= comment[n] | NL ) ( ( WS )? NL )* ({...}? =>childs+= line[ctx, n] )* -> ( $childs)* ;
+    // smx.g:271:1: children[int level, ContextObj ctx, Node n] returns [int num] : ( WS )? (childs+= comment[n] | NL ) ( ( WS )? NL )* ({...}? =>childs+= line[ctx, n] )* -> ( $childs)* ;
     public final children_return children(int level, ContextObj ctx, Node n) throws RecognitionException {
         children_return retval = new children_return();
         retval.start = input.LT(1);
@@ -777,10 +777,10 @@ public class smxParser extends Parser {
         retval.num =0;
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 5) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:272:15: ( ( WS )? (childs+= comment[n] | NL ) ( ( WS )? NL )* ({...}? =>childs+= line[ctx, n] )* -> ( $childs)* )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:273:3: ( WS )? (childs+= comment[n] | NL ) ( ( WS )? NL )* ({...}? =>childs+= line[ctx, n] )*
+            // smx.g:272:15: ( ( WS )? (childs+= comment[n] | NL ) ( ( WS )? NL )* ({...}? =>childs+= line[ctx, n] )* -> ( $childs)* )
+            // smx.g:273:3: ( WS )? (childs+= comment[n] | NL ) ( ( WS )? NL )* ({...}? =>childs+= line[ctx, n] )*
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:273:3: ( WS )?
+            // smx.g:273:3: ( WS )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -789,7 +789,7 @@ public class smxParser extends Parser {
             }
             switch (alt6) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:273:3: WS
+                    // smx.g:273:3: WS
                     {
                     WS10=(Token)input.LT(1);
                     match(input,WS,FOLLOW_WS_in_children272); 
@@ -801,7 +801,7 @@ public class smxParser extends Parser {
 
             }
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:273:7: (childs+= comment[n] | NL )
+            // smx.g:273:7: (childs+= comment[n] | NL )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -819,7 +819,7 @@ public class smxParser extends Parser {
             }
             switch (alt7) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:273:8: childs+= comment[n]
+                    // smx.g:273:8: childs+= comment[n]
                     {
                     pushFollow(FOLLOW_comment_in_children278);
                     childs=comment(n);
@@ -833,7 +833,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:273:29: NL
+                    // smx.g:273:29: NL
                     {
                     NL11=(Token)input.LT(1);
                     match(input,NL,FOLLOW_NL_in_children283); 
@@ -845,7 +845,7 @@ public class smxParser extends Parser {
 
             }
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:273:33: ( ( WS )? NL )*
+            // smx.g:273:33: ( ( WS )? NL )*
             loop9:
             do {
                 int alt9=2;
@@ -867,9 +867,9 @@ public class smxParser extends Parser {
 
                 switch (alt9) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:273:34: ( WS )? NL
+            	    // smx.g:273:34: ( WS )? NL
             	    {
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:273:34: ( WS )?
+            	    // smx.g:273:34: ( WS )?
             	    int alt8=2;
             	    int LA8_0 = input.LA(1);
 
@@ -878,7 +878,7 @@ public class smxParser extends Parser {
             	    }
             	    switch (alt8) {
             	        case 1 :
-            	            // /Users/robertiannucci/antlr/test/smx10/smx.g:273:34: WS
+            	            // smx.g:273:34: WS
             	            {
             	            WS12=(Token)input.LT(1);
             	            match(input,WS,FOLLOW_WS_in_children287); 
@@ -903,7 +903,7 @@ public class smxParser extends Parser {
                 }
             } while (true);
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:274:3: ({...}? =>childs+= line[ctx, n] )*
+            // smx.g:274:3: ({...}? =>childs+= line[ctx, n] )*
             loop10:
             do {
                 int alt10=2;
@@ -994,7 +994,7 @@ public class smxParser extends Parser {
 
                 switch (alt10) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:274:4: {...}? =>childs+= line[ctx, n]
+            	    // smx.g:274:4: {...}? =>childs+= line[ctx, n]
             	    {
             	    if ( !(lvlPreCheck(level)) ) {
             	        throw new FailedPredicateException(input, "children", "lvlPreCheck(level)");
@@ -1030,7 +1030,7 @@ public class smxParser extends Parser {
             root_0 = (Tree)adaptor.nil();
             // 274:61: -> ( $childs)*
             {
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:274:64: ( $childs)*
+                // smx.g:274:64: ( $childs)*
                 while ( stream_childs.hasNext() ) {
                     adaptor.addChild(root_0, ((ParserRuleReturnScope)stream_childs.next()).getTree());
 
@@ -1065,7 +1065,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start data
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:276:1: data[Node n] : data_sub[n] ( comment[n] | NL ) ->;
+    // smx.g:276:1: data[Node n] : data_sub[n] ( comment[n] | NL ) ->;
     public final data_return data(Node n) throws RecognitionException {
         data_return retval = new data_return();
         retval.start = input.LT(1);
@@ -1084,15 +1084,15 @@ public class smxParser extends Parser {
         RewriteRuleSubtreeStream stream_data_sub=new RewriteRuleSubtreeStream(adaptor,"rule data_sub");
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:276:13: ( data_sub[n] ( comment[n] | NL ) ->)
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:276:15: data_sub[n] ( comment[n] | NL )
+            // smx.g:276:13: ( data_sub[n] ( comment[n] | NL ) ->)
+            // smx.g:276:15: data_sub[n] ( comment[n] | NL )
             {
             pushFollow(FOLLOW_data_sub_in_data322);
             data_sub14=data_sub(n);
             _fsp--;
 
             stream_data_sub.add(data_sub14.getTree());
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:276:27: ( comment[n] | NL )
+            // smx.g:276:27: ( comment[n] | NL )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -1110,7 +1110,7 @@ public class smxParser extends Parser {
             }
             switch (alt11) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:276:28: comment[n]
+                    // smx.g:276:28: comment[n]
                     {
                     pushFollow(FOLLOW_comment_in_data326);
                     comment15=comment(n);
@@ -1121,7 +1121,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:276:41: NL
+                    // smx.g:276:41: NL
                     {
                     NL16=(Token)input.LT(1);
                     match(input,NL,FOLLOW_NL_in_data331); 
@@ -1175,7 +1175,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start data_sub
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:277:1: data_sub[Node n] : ( STRING | ~ ( NL | WS | WAKA | HASH | STRING ) (~ ( NL | HASH | WAKA ) )* );
+    // smx.g:277:1: data_sub[Node n] : ( STRING | ~ ( NL | WS | WAKA | HASH | STRING ) (~ ( NL | HASH | WAKA ) )* );
     public final data_sub_return data_sub(Node n) throws RecognitionException {
         data_sub_return retval = new data_sub_return();
         retval.start = input.LT(1);
@@ -1192,7 +1192,7 @@ public class smxParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:281:2: ( STRING | ~ ( NL | WS | WAKA | HASH | STRING ) (~ ( NL | HASH | WAKA ) )* )
+            // smx.g:281:2: ( STRING | ~ ( NL | WS | WAKA | HASH | STRING ) (~ ( NL | HASH | WAKA ) )* )
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1210,7 +1210,7 @@ public class smxParser extends Parser {
             }
             switch (alt13) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:281:4: STRING
+                    // smx.g:281:4: STRING
                     {
                     root_0 = (Tree)adaptor.nil();
 
@@ -1223,7 +1223,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:281:14: ~ ( NL | WS | WAKA | HASH | STRING ) (~ ( NL | HASH | WAKA ) )*
+                    // smx.g:281:14: ~ ( NL | WS | WAKA | HASH | STRING ) (~ ( NL | HASH | WAKA ) )*
                     {
                     root_0 = (Tree)adaptor.nil();
 
@@ -1239,7 +1239,7 @@ public class smxParser extends Parser {
                         recoverFromMismatchedSet(input,mse,FOLLOW_set_in_data_sub353);    throw mse;
                     }
 
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:281:40: (~ ( NL | HASH | WAKA ) )*
+                    // smx.g:281:40: (~ ( NL | HASH | WAKA ) )*
                     loop12:
                     do {
                         int alt12=2;
@@ -1252,7 +1252,7 @@ public class smxParser extends Parser {
 
                         switch (alt12) {
                     	case 1 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:281:40: ~ ( NL | HASH | WAKA )
+                    	    // smx.g:281:40: ~ ( NL | HASH | WAKA )
                     	    {
                     	    set19=(Token)input.LT(1);
                     	    if ( (input.LA(1)>=TAG && input.LA(1)<=WS)||input.LA(1)==STRING||(input.LA(1)>=NAME && input.LA(1)<=ESC) ) {
@@ -1306,7 +1306,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start dtag
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:283:1: dtag[ContextObj ctx, Node n] : (nam= NAME WS )? d= STRING ( WS )? c= closer ->;
+    // smx.g:283:1: dtag[ContextObj ctx, Node n] : (nam= NAME WS )? d= STRING ( WS )? c= closer ->;
     public final dtag_return dtag(ContextObj ctx, Node n) throws RecognitionException {
         dtag_return retval = new dtag_return();
         retval.start = input.LT(1);
@@ -1330,10 +1330,10 @@ public class smxParser extends Parser {
         RewriteRuleSubtreeStream stream_closer=new RewriteRuleSubtreeStream(adaptor,"rule closer");
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:294:2: ( (nam= NAME WS )? d= STRING ( WS )? c= closer ->)
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:294:4: (nam= NAME WS )? d= STRING ( WS )? c= closer
+            // smx.g:294:2: ( (nam= NAME WS )? d= STRING ( WS )? c= closer ->)
+            // smx.g:294:4: (nam= NAME WS )? d= STRING ( WS )? c= closer
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:294:4: (nam= NAME WS )?
+            // smx.g:294:4: (nam= NAME WS )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1342,7 +1342,7 @@ public class smxParser extends Parser {
             }
             switch (alt14) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:294:5: nam= NAME WS
+                    // smx.g:294:5: nam= NAME WS
                     {
                     nam=(Token)input.LT(1);
                     match(input,NAME,FOLLOW_NAME_in_dtag390); 
@@ -1362,7 +1362,7 @@ public class smxParser extends Parser {
             match(input,STRING,FOLLOW_STRING_in_dtag398); 
             stream_STRING.add(d);
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:294:28: ( WS )?
+            // smx.g:294:28: ( WS )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -1371,7 +1371,7 @@ public class smxParser extends Parser {
             }
             switch (alt15) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:294:28: WS
+                    // smx.g:294:28: WS
                     {
                     WS21=(Token)input.LT(1);
                     match(input,WS,FOLLOW_WS_in_dtag400); 
@@ -1441,7 +1441,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start taglet
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:296:1: taglet : (n= NAME WS )? attribs -> ^( TAGLET ^( NAM ( $n)? ) attribs ) ;
+    // smx.g:296:1: taglet : (n= NAME WS )? attribs -> ^( TAGLET ^( NAM ( $n)? ) attribs ) ;
     public final taglet_return taglet() throws RecognitionException {
         taglet_return retval = new taglet_return();
         retval.start = input.LT(1);
@@ -1460,15 +1460,15 @@ public class smxParser extends Parser {
         RewriteRuleSubtreeStream stream_attribs=new RewriteRuleSubtreeStream(adaptor,"rule attribs");
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:296:7: ( (n= NAME WS )? attribs -> ^( TAGLET ^( NAM ( $n)? ) attribs ) )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:296:9: (n= NAME WS )? attribs
+            // smx.g:296:7: ( (n= NAME WS )? attribs -> ^( TAGLET ^( NAM ( $n)? ) attribs ) )
+            // smx.g:296:9: (n= NAME WS )? attribs
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:296:9: (n= NAME WS )?
+            // smx.g:296:9: (n= NAME WS )?
             int alt16=2;
             alt16 = dfa16.predict(input);
             switch (alt16) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:296:10: n= NAME WS
+                    // smx.g:296:10: n= NAME WS
                     {
                     n=(Token)input.LT(1);
                     match(input,NAME,FOLLOW_NAME_in_taglet419); 
@@ -1503,17 +1503,17 @@ public class smxParser extends Parser {
             root_0 = (Tree)adaptor.nil();
             // 296:30: -> ^( TAGLET ^( NAM ( $n)? ) attribs )
             {
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:296:33: ^( TAGLET ^( NAM ( $n)? ) attribs )
+                // smx.g:296:33: ^( TAGLET ^( NAM ( $n)? ) attribs )
                 {
                 Tree root_1 = (Tree)adaptor.nil();
                 root_1 = (Tree)adaptor.becomeRoot(adaptor.create(TAGLET, "TAGLET"), root_1);
 
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:296:42: ^( NAM ( $n)? )
+                // smx.g:296:42: ^( NAM ( $n)? )
                 {
                 Tree root_2 = (Tree)adaptor.nil();
                 root_2 = (Tree)adaptor.becomeRoot(adaptor.create(NAM, "NAM"), root_2);
 
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:296:48: ( $n)?
+                // smx.g:296:48: ( $n)?
                 if ( stream_n.hasNext() ) {
                     adaptor.addChild(root_2, stream_n.next());
 
@@ -1555,7 +1555,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start tag
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:297:1: tag[int level, ContextObj ctx, Node n] : ts+= taglet ( AND ( WS )? ts+= taglet )* closer ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] ) ->;
+    // smx.g:297:1: tag[int level, ContextObj ctx, Node n] : ts+= taglet ( AND ( WS )? ts+= taglet )* closer ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] ) ->;
     public final tag_return tag(int level, ContextObj ctx, Node n) throws RecognitionException {
         tag_return retval = new tag_return();
         retval.start = input.LT(1);
@@ -1585,8 +1585,8 @@ public class smxParser extends Parser {
          boolean star=true; ContextObj ctx_new = ctx; Node ths = n; 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:300:2: (ts+= taglet ( AND ( WS )? ts+= taglet )* closer ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] ) ->)
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:301:4: ts+= taglet ( AND ( WS )? ts+= taglet )* closer ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] )
+            // smx.g:300:2: (ts+= taglet ( AND ( WS )? ts+= taglet )* closer ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] ) ->)
+            // smx.g:301:4: ts+= taglet ( AND ( WS )? ts+= taglet )* closer ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] )
             {
             pushFollow(FOLLOW_taglet_in_tag463);
             ts=taglet();
@@ -1596,7 +1596,7 @@ public class smxParser extends Parser {
             if (list_ts==null) list_ts=new ArrayList();
             list_ts.add(ts);
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:301:15: ( AND ( WS )? ts+= taglet )*
+            // smx.g:301:15: ( AND ( WS )? ts+= taglet )*
             loop18:
             do {
                 int alt18=2;
@@ -1609,13 +1609,13 @@ public class smxParser extends Parser {
 
                 switch (alt18) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:301:16: AND ( WS )? ts+= taglet
+            	    // smx.g:301:16: AND ( WS )? ts+= taglet
             	    {
             	    AND24=(Token)input.LT(1);
             	    match(input,AND,FOLLOW_AND_in_tag466); 
             	    stream_AND.add(AND24);
 
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:301:20: ( WS )?
+            	    // smx.g:301:20: ( WS )?
             	    int alt17=2;
             	    int LA17_0 = input.LA(1);
 
@@ -1624,7 +1624,7 @@ public class smxParser extends Parser {
             	    }
             	    switch (alt17) {
             	        case 1 :
-            	            // /Users/robertiannucci/antlr/test/smx10/smx.g:301:20: WS
+            	            // smx.g:301:20: WS
             	            {
             	            WS25=(Token)input.LT(1);
             	            match(input,WS,FOLLOW_WS_in_tag468); 
@@ -1684,7 +1684,7 @@ public class smxParser extends Parser {
             			throw new RecognitionException();
             		}
             	  
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:328:4: ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] )
+            // smx.g:328:4: ( ({...}? => ( WS )? data[ths] ) | children[level, ctx_new, ths] )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -1718,15 +1718,15 @@ public class smxParser extends Parser {
             }
             switch (alt20) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:328:5: ({...}? => ( WS )? data[ths] )
+                    // smx.g:328:5: ({...}? => ( WS )? data[ths] )
                     {
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:328:5: ({...}? => ( WS )? data[ths] )
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:328:6: {...}? => ( WS )? data[ths]
+                    // smx.g:328:5: ({...}? => ( WS )? data[ths] )
+                    // smx.g:328:6: {...}? => ( WS )? data[ths]
                     {
                     if ( !(!star) ) {
                         throw new FailedPredicateException(input, "tag", "!star");
                     }
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:328:17: ( WS )?
+                    // smx.g:328:17: ( WS )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -1735,7 +1735,7 @@ public class smxParser extends Parser {
                     }
                     switch (alt19) {
                         case 1 :
-                            // /Users/robertiannucci/antlr/test/smx10/smx.g:328:17: WS
+                            // smx.g:328:17: WS
                             {
                             WS27=(Token)input.LT(1);
                             match(input,WS,FOLLOW_WS_in_tag493); 
@@ -1759,7 +1759,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:328:34: children[level, ctx_new, ths]
+                    // smx.g:328:34: children[level, ctx_new, ths]
                     {
                     pushFollow(FOLLOW_children_in_tag502);
                     children29=children(level,  ctx_new,  ths);
@@ -1817,7 +1817,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start attribs
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:336:1: attribs : (a+= attr ( WS )? )* -> ^( ATTRIBS ( $a)* ) ;
+    // smx.g:336:1: attribs : (a+= attr ( WS )? )* -> ^( ATTRIBS ( $a)* ) ;
     public final attribs_return attribs() throws RecognitionException {
         attribs_return retval = new attribs_return();
         retval.start = input.LT(1);
@@ -1832,17 +1832,17 @@ public class smxParser extends Parser {
         RewriteRuleSubtreeStream stream_attr=new RewriteRuleSubtreeStream(adaptor,"rule attr");
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:336:8: ( (a+= attr ( WS )? )* -> ^( ATTRIBS ( $a)* ) )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:336:10: (a+= attr ( WS )? )*
+            // smx.g:336:8: ( (a+= attr ( WS )? )* -> ^( ATTRIBS ( $a)* ) )
+            // smx.g:336:10: (a+= attr ( WS )? )*
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:336:10: (a+= attr ( WS )? )*
+            // smx.g:336:10: (a+= attr ( WS )? )*
             loop22:
             do {
                 int alt22=2;
                 alt22 = dfa22.predict(input);
                 switch (alt22) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:336:11: a+= attr ( WS )?
+            	    // smx.g:336:11: a+= attr ( WS )?
             	    {
             	    pushFollow(FOLLOW_attr_in_attribs536);
             	    a=attr();
@@ -1852,7 +1852,7 @@ public class smxParser extends Parser {
             	    if (list_a==null) list_a=new ArrayList();
             	    list_a.add(a);
 
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:336:19: ( WS )?
+            	    // smx.g:336:19: ( WS )?
             	    int alt21=2;
             	    int LA21_0 = input.LA(1);
 
@@ -1861,7 +1861,7 @@ public class smxParser extends Parser {
             	    }
             	    switch (alt21) {
             	        case 1 :
-            	            // /Users/robertiannucci/antlr/test/smx10/smx.g:336:19: WS
+            	            // smx.g:336:19: WS
             	            {
             	            WS30=(Token)input.LT(1);
             	            match(input,WS,FOLLOW_WS_in_attribs538); 
@@ -1895,12 +1895,12 @@ public class smxParser extends Parser {
             root_0 = (Tree)adaptor.nil();
             // 336:25: -> ^( ATTRIBS ( $a)* )
             {
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:336:28: ^( ATTRIBS ( $a)* )
+                // smx.g:336:28: ^( ATTRIBS ( $a)* )
                 {
                 Tree root_1 = (Tree)adaptor.nil();
                 root_1 = (Tree)adaptor.becomeRoot(adaptor.create(ATTRIBS, "ATTRIBS"), root_1);
 
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:336:38: ( $a)*
+                // smx.g:336:38: ( $a)*
                 while ( stream_a.hasNext() ) {
                     adaptor.addChild(root_1, ((ParserRuleReturnScope)stream_a.next()).getTree());
 
@@ -1938,7 +1938,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start attr
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:1: attr : NAME ( WS )? EQ ( WS )? ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING ) -> ^( ATTR NAME ( $v)+ ) ;
+    // smx.g:337:1: attr : NAME ( WS )? EQ ( WS )? ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING ) -> ^( ATTR NAME ( $v)+ ) ;
     public final attr_return attr() throws RecognitionException {
         attr_return retval = new attr_return();
         retval.start = input.LT(1);
@@ -1974,14 +1974,14 @@ public class smxParser extends Parser {
 
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 12) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:5: ( NAME ( WS )? EQ ( WS )? ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING ) -> ^( ATTR NAME ( $v)+ ) )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:8: NAME ( WS )? EQ ( WS )? ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING )
+            // smx.g:337:5: ( NAME ( WS )? EQ ( WS )? ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING ) -> ^( ATTR NAME ( $v)+ ) )
+            // smx.g:337:8: NAME ( WS )? EQ ( WS )? ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING )
             {
             NAME31=(Token)input.LT(1);
             match(input,NAME,FOLLOW_NAME_in_attr558); 
             stream_NAME.add(NAME31);
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:13: ( WS )?
+            // smx.g:337:13: ( WS )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -1990,7 +1990,7 @@ public class smxParser extends Parser {
             }
             switch (alt23) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:13: WS
+                    // smx.g:337:13: WS
                     {
                     WS32=(Token)input.LT(1);
                     match(input,WS,FOLLOW_WS_in_attr560); 
@@ -2006,7 +2006,7 @@ public class smxParser extends Parser {
             match(input,EQ,FOLLOW_EQ_in_attr563); 
             stream_EQ.add(EQ33);
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:20: ( WS )?
+            // smx.g:337:20: ( WS )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -2015,7 +2015,7 @@ public class smxParser extends Parser {
             }
             switch (alt24) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:20: WS
+                    // smx.g:337:20: WS
                     {
                     WS34=(Token)input.LT(1);
                     match(input,WS,FOLLOW_WS_in_attr565); 
@@ -2027,7 +2027,7 @@ public class smxParser extends Parser {
 
             }
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:24: ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING )
+            // smx.g:337:24: ( (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL | v+= STRING )
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -2045,9 +2045,9 @@ public class smxParser extends Parser {
             }
             switch (alt27) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:25: (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL
+                    // smx.g:337:25: (v+= ( SYMBOLS | HASH | BANG ) )* v+= SYMBOL
                     {
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:26: (v+= ( SYMBOLS | HASH | BANG ) )*
+                    // smx.g:337:26: (v+= ( SYMBOLS | HASH | BANG ) )*
                     loop26:
                     do {
                         int alt26=2;
@@ -2060,9 +2060,9 @@ public class smxParser extends Parser {
 
                         switch (alt26) {
                     	case 1 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:26: v+= ( SYMBOLS | HASH | BANG )
+                    	    // smx.g:337:26: v+= ( SYMBOLS | HASH | BANG )
                     	    {
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:28: ( SYMBOLS | HASH | BANG )
+                    	    // smx.g:337:28: ( SYMBOLS | HASH | BANG )
                     	    int alt25=3;
                     	    switch ( input.LA(1) ) {
                     	    case SYMBOLS:
@@ -2089,7 +2089,7 @@ public class smxParser extends Parser {
 
                     	    switch (alt25) {
                     	        case 1 :
-                    	            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:29: SYMBOLS
+                    	            // smx.g:337:29: SYMBOLS
                     	            {
                     	            SYMBOLS35=(Token)input.LT(1);
                     	            match(input,SYMBOLS,FOLLOW_SYMBOLS_in_attr572); 
@@ -2099,7 +2099,7 @@ public class smxParser extends Parser {
                     	            }
                     	            break;
                     	        case 2 :
-                    	            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:37: HASH
+                    	            // smx.g:337:37: HASH
                     	            {
                     	            HASH36=(Token)input.LT(1);
                     	            match(input,HASH,FOLLOW_HASH_in_attr574); 
@@ -2109,7 +2109,7 @@ public class smxParser extends Parser {
                     	            }
                     	            break;
                     	        case 3 :
-                    	            // /Users/robertiannucci/antlr/test/smx10/smx.g:337:42: BANG
+                    	            // smx.g:337:42: BANG
                     	            {
                     	            BANG37=(Token)input.LT(1);
                     	            match(input,BANG,FOLLOW_BANG_in_attr576); 
@@ -2141,7 +2141,7 @@ public class smxParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:337:61: v+= STRING
+                    // smx.g:337:61: v+= STRING
                     {
                     v=(Token)input.LT(1);
                     match(input,STRING,FOLLOW_STRING_in_attr588); 
@@ -2158,7 +2158,7 @@ public class smxParser extends Parser {
 
 
             // AST REWRITE
-            // elements: v, NAME
+            // elements: NAME, v
             // token labels: 
             // rule labels: retval
             // token list labels: v
@@ -2170,7 +2170,7 @@ public class smxParser extends Parser {
             root_0 = (Tree)adaptor.nil();
             // 338:7: -> ^( ATTR NAME ( $v)+ )
             {
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:338:10: ^( ATTR NAME ( $v)+ )
+                // smx.g:338:10: ^( ATTR NAME ( $v)+ )
                 {
                 Tree root_1 = (Tree)adaptor.nil();
                 root_1 = (Tree)adaptor.becomeRoot(adaptor.create(ATTR, "ATTR"), root_1);
@@ -2217,7 +2217,7 @@ public class smxParser extends Parser {
     };
 
     // $ANTLR start closer
-    // /Users/robertiannucci/antlr/test/smx10/smx.g:340:1: closer returns [int type] : (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )* s+= WAKA -> ^( CLOSER ( $s)+ ) ;
+    // smx.g:340:1: closer returns [int type] : (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )* s+= WAKA -> ^( CLOSER ( $s)+ ) ;
     public final closer_return closer() throws RecognitionException {
         closer_return retval = new closer_return();
         retval.start = input.LT(1);
@@ -2237,10 +2237,10 @@ public class smxParser extends Parser {
         String text="";
         try {
             if ( backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:341:23: ( (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )* s+= WAKA -> ^( CLOSER ( $s)+ ) )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:342:3: (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )* s+= WAKA
+            // smx.g:341:23: ( (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )* s+= WAKA -> ^( CLOSER ( $s)+ ) )
+            // smx.g:342:3: (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )* s+= WAKA
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:342:3: (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )*
+            // smx.g:342:3: (s+= SYMBOLS | s+= HASH | s+= EQ | s+= NAME )*
             loop28:
             do {
                 int alt28=5;
@@ -2270,7 +2270,7 @@ public class smxParser extends Parser {
 
                 switch (alt28) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:342:4: s+= SYMBOLS
+            	    // smx.g:342:4: s+= SYMBOLS
             	    {
             	    s=(Token)input.LT(1);
             	    match(input,SYMBOLS,FOLLOW_SYMBOLS_in_closer628); 
@@ -2283,7 +2283,7 @@ public class smxParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:342:15: s+= HASH
+            	    // smx.g:342:15: s+= HASH
             	    {
             	    s=(Token)input.LT(1);
             	    match(input,HASH,FOLLOW_HASH_in_closer632); 
@@ -2296,7 +2296,7 @@ public class smxParser extends Parser {
             	    }
             	    break;
             	case 3 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:342:23: s+= EQ
+            	    // smx.g:342:23: s+= EQ
             	    {
             	    s=(Token)input.LT(1);
             	    match(input,EQ,FOLLOW_EQ_in_closer636); 
@@ -2309,7 +2309,7 @@ public class smxParser extends Parser {
             	    }
             	    break;
             	case 4 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:342:29: s+= NAME
+            	    // smx.g:342:29: s+= NAME
             	    {
             	    s=(Token)input.LT(1);
             	    match(input,NAME,FOLLOW_NAME_in_closer640); 
@@ -2350,7 +2350,7 @@ public class smxParser extends Parser {
             root_0 = (Tree)adaptor.nil();
             // 345:3: -> ^( CLOSER ( $s)+ )
             {
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:345:6: ^( CLOSER ( $s)+ )
+                // smx.g:345:6: ^( CLOSER ( $s)+ )
                 {
                 Tree root_1 = (Tree)adaptor.nil();
                 root_1 = (Tree)adaptor.becomeRoot(adaptor.create(CLOSER, "CLOSER"), root_1);

@@ -1,10 +1,10 @@
-HOME = /Users/robertiannucci
-CP = .:classes:$(HOME)/antlr/src/antlr-3.0.1/lib/antlr-runtime-3.0.1.jar:$(HOME)/xerces/xerces-1_4_4/xerces.jar
+CP = -cp .:classes:libs/antlr-runtime-3.0.1.jar:libs/xerces.jar:libs/antlr-3.0.1.jar:libs/stringtemplate-3.1b1.jar:libs/antlr-2.7.7.jar
 
 all: build run
 
 build:
-	javac -cp $(CP) test.java smx*.java -d classes
+	java $(CP) org.antlr.Tool smx.g
+	javac $(CP) tests/test.java smx*.java -d classes
 
 run:
-	java -cp $(CP) test 
+	java $(CP) test 

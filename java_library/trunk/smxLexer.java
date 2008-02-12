@@ -1,4 +1,4 @@
-// $ANTLR 3.0.1 /Users/robertiannucci/antlr/test/smx10/smx.g 2008-02-12 12:55:22
+// $ANTLR 3.0.1 smx.g 2008-02-12 13:32:22
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -38,16 +38,16 @@ public class smxLexer extends Lexer {
     public smxLexer(CharStream input) {
         super(input);
     }
-    public String getGrammarFileName() { return "/Users/robertiannucci/antlr/test/smx10/smx.g"; }
+    public String getGrammarFileName() { return "smx.g"; }
 
     // $ANTLR start WS
     public final void mWS() throws RecognitionException {
         try {
             int _type = WS;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:349:3: ( ( ' ' | '\\t' )+ )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:349:5: ( ' ' | '\\t' )+
+            // smx.g:349:3: ( ( ' ' | '\\t' )+ )
+            // smx.g:349:5: ( ' ' | '\\t' )+
             {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:349:5: ( ' ' | '\\t' )+
+            // smx.g:349:5: ( ' ' | '\\t' )+
             int cnt1=0;
             loop1:
             do {
@@ -61,7 +61,7 @@ public class smxLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:
+            	    // smx.g:
             	    {
             	    if ( input.LA(1)=='\t'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -100,8 +100,8 @@ public class smxLexer extends Lexer {
     public final void mNL() throws RecognitionException {
         try {
             int _type = NL;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:350:4: ( '\\n' )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:350:7: '\\n'
+            // smx.g:350:4: ( '\\n' )
+            // smx.g:350:7: '\\n'
             {
             match('\n'); 
 
@@ -118,11 +118,11 @@ public class smxLexer extends Lexer {
     public final void mSYMBOLS() throws RecognitionException {
         try {
             int _type = SYMBOLS;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:351:8: ( SYMBOL ( SYMBOL | '&' | BANG )* )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:351:10: SYMBOL ( SYMBOL | '&' | BANG )*
+            // smx.g:351:8: ( SYMBOL ( SYMBOL | '&' | BANG )* )
+            // smx.g:351:10: SYMBOL ( SYMBOL | '&' | BANG )*
             {
             mSYMBOL(); 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:351:17: ( SYMBOL | '&' | BANG )*
+            // smx.g:351:17: ( SYMBOL | '&' | BANG )*
             loop2:
             do {
                 int alt2=2;
@@ -135,7 +135,7 @@ public class smxLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:
+            	    // smx.g:
             	    {
             	    if ( input.LA(1)=='!'||(input.LA(1)>='$' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='/')||(input.LA(1)>=':' && input.LA(1)<='<')||(input.LA(1)>='?' && input.LA(1)<='@')||(input.LA(1)>='[' && input.LA(1)<='`')||(input.LA(1)>='{' && input.LA(1)<='~') ) {
             	        input.consume();
@@ -170,8 +170,8 @@ public class smxLexer extends Lexer {
     public final void mNAME() throws RecognitionException {
         try {
             int _type = NAME;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:352:5: ( ( PCHAR | BANG ) ( PCHAR | BANG | SYMBOL | HASH | '&' )* )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:352:8: ( PCHAR | BANG ) ( PCHAR | BANG | SYMBOL | HASH | '&' )*
+            // smx.g:352:5: ( ( PCHAR | BANG ) ( PCHAR | BANG | SYMBOL | HASH | '&' )* )
+            // smx.g:352:8: ( PCHAR | BANG ) ( PCHAR | BANG | SYMBOL | HASH | '&' )*
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\u001F')||input.LA(1)=='!'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u007F' && input.LA(1)<='\uFFFE') ) {
                 input.consume();
@@ -183,7 +183,7 @@ public class smxLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:352:21: ( PCHAR | BANG | SYMBOL | HASH | '&' )*
+            // smx.g:352:21: ( PCHAR | BANG | SYMBOL | HASH | '&' )*
             loop3:
             do {
                 int alt3=2;
@@ -196,7 +196,7 @@ public class smxLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // /Users/robertiannucci/antlr/test/smx10/smx.g:
+            	    // smx.g:
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\u001F')||input.LA(1)=='!'||(input.LA(1)>='#' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='<')||(input.LA(1)>='?' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -231,8 +231,8 @@ public class smxLexer extends Lexer {
     public final void mWAKA() throws RecognitionException {
         try {
             int _type = WAKA;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:353:5: ( '>' )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:353:8: '>'
+            // smx.g:353:5: ( '>' )
+            // smx.g:353:8: '>'
             {
             match('>'); 
 
@@ -249,8 +249,8 @@ public class smxLexer extends Lexer {
     public final void mAND() throws RecognitionException {
         try {
             int _type = AND;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:354:5: ( '&&' )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:354:7: '&&'
+            // smx.g:354:5: ( '&&' )
+            // smx.g:354:7: '&&'
             {
             match("&&"); 
 
@@ -268,8 +268,8 @@ public class smxLexer extends Lexer {
     public final void mEQ() throws RecognitionException {
         try {
             int _type = EQ;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:355:4: ( '=' )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:355:6: '='
+            // smx.g:355:4: ( '=' )
+            // smx.g:355:6: '='
             {
             match('='); 
 
@@ -286,8 +286,8 @@ public class smxLexer extends Lexer {
     public final void mHASH() throws RecognitionException {
         try {
             int _type = HASH;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:356:5: ( '#' )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:356:7: '#'
+            // smx.g:356:5: ( '#' )
+            // smx.g:356:7: '#'
             {
             match('#'); 
 
@@ -303,8 +303,8 @@ public class smxLexer extends Lexer {
     // $ANTLR start BANG
     public final void mBANG() throws RecognitionException {
         try {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:359:5: ( '!' )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:359:9: '!'
+            // smx.g:359:5: ( '!' )
+            // smx.g:359:9: '!'
             {
             match('!'); 
 
@@ -321,7 +321,7 @@ public class smxLexer extends Lexer {
         try {
             int _type = STRING;
             int num=0;
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:364:2: ( ( '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\'' ) | ( '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"' ) | ( '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"' ) | ( '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\'' ) )
+            // smx.g:364:2: ( ( '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\'' ) | ( '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"' ) | ( '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"' ) | ( '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\'' ) )
             int alt10=4;
             int LA10_0 = input.LA(1);
 
@@ -377,14 +377,14 @@ public class smxLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:364:4: ( '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\'' )
+                    // smx.g:364:4: ( '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\'' )
                     {
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:364:4: ( '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\'' )
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:364:5: '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\''
+                    // smx.g:364:4: ( '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\'' )
+                    // smx.g:364:5: '\\'\\'\\'' ( options {greedy=false; } : ( ESC | . ) )* '\\'\\'\\''
                     {
                     match("\'\'\'"); 
 
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:364:14: ( options {greedy=false; } : ( ESC | . ) )*
+                    // smx.g:364:14: ( options {greedy=false; } : ( ESC | . ) )*
                     loop5:
                     do {
                         int alt5=2;
@@ -418,9 +418,9 @@ public class smxLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:364:39: ( ESC | . )
+                    	    // smx.g:364:39: ( ESC | . )
                     	    {
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:364:39: ( ESC | . )
+                    	    // smx.g:364:39: ( ESC | . )
                     	    int alt4=2;
                     	    int LA4_0 = input.LA(1);
 
@@ -454,14 +454,14 @@ public class smxLexer extends Lexer {
                     	    }
                     	    switch (alt4) {
                     	        case 1 :
-                    	            // /Users/robertiannucci/antlr/test/smx10/smx.g:364:40: ESC
+                    	            // smx.g:364:40: ESC
                     	            {
                     	            mESC(); 
 
                     	            }
                     	            break;
                     	        case 2 :
-                    	            // /Users/robertiannucci/antlr/test/smx10/smx.g:364:44: .
+                    	            // smx.g:364:44: .
                     	            {
                     	            matchAny(); 
 
@@ -489,14 +489,14 @@ public class smxLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:365:7: ( '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"' )
+                    // smx.g:365:7: ( '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"' )
                     {
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:365:7: ( '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"' )
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:365:8: '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"'
+                    // smx.g:365:7: ( '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"' )
+                    // smx.g:365:8: '\"\"\"' ( options {greedy=false; } : ( ESC | . ) )* '\"\"\"'
                     {
                     match("\"\"\""); 
 
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:365:14: ( options {greedy=false; } : ( ESC | . ) )*
+                    // smx.g:365:14: ( options {greedy=false; } : ( ESC | . ) )*
                     loop7:
                     do {
                         int alt7=2;
@@ -530,9 +530,9 @@ public class smxLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:365:39: ( ESC | . )
+                    	    // smx.g:365:39: ( ESC | . )
                     	    {
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:365:39: ( ESC | . )
+                    	    // smx.g:365:39: ( ESC | . )
                     	    int alt6=2;
                     	    int LA6_0 = input.LA(1);
 
@@ -566,14 +566,14 @@ public class smxLexer extends Lexer {
                     	    }
                     	    switch (alt6) {
                     	        case 1 :
-                    	            // /Users/robertiannucci/antlr/test/smx10/smx.g:365:40: ESC
+                    	            // smx.g:365:40: ESC
                     	            {
                     	            mESC(); 
 
                     	            }
                     	            break;
                     	        case 2 :
-                    	            // /Users/robertiannucci/antlr/test/smx10/smx.g:365:44: .
+                    	            // smx.g:365:44: .
                     	            {
                     	            matchAny(); 
 
@@ -601,13 +601,13 @@ public class smxLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:366:7: ( '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"' )
+                    // smx.g:366:7: ( '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"' )
                     {
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:366:7: ( '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"' )
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:366:8: '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"'
+                    // smx.g:366:7: ( '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"' )
+                    // smx.g:366:8: '\"' ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )* '\"'
                     {
                     match('\"'); 
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:366:12: ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )*
+                    // smx.g:366:12: ( ESC | ~ ( '\\\\' | '\\n' | '\"' ) )*
                     loop8:
                     do {
                         int alt8=3;
@@ -623,14 +623,14 @@ public class smxLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:366:13: ESC
+                    	    // smx.g:366:13: ESC
                     	    {
                     	    mESC(); 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:366:17: ~ ( '\\\\' | '\\n' | '\"' )
+                    	    // smx.g:366:17: ~ ( '\\\\' | '\\n' | '\"' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -660,13 +660,13 @@ public class smxLexer extends Lexer {
                     }
                     break;
                 case 4 :
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:367:7: ( '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\'' )
+                    // smx.g:367:7: ( '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\'' )
                     {
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:367:7: ( '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\'' )
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:367:8: '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\''
+                    // smx.g:367:7: ( '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\'' )
+                    // smx.g:367:8: '\\'' ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )* '\\''
                     {
                     match('\''); 
-                    // /Users/robertiannucci/antlr/test/smx10/smx.g:367:13: ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )*
+                    // smx.g:367:13: ( ESC | ~ ( '\\\\' | '\\n' | '\\'' ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -682,14 +682,14 @@ public class smxLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:367:14: ESC
+                    	    // smx.g:367:14: ESC
                     	    {
                     	    mESC(); 
 
                     	    }
                     	    break;
                     	case 2 :
-                    	    // /Users/robertiannucci/antlr/test/smx10/smx.g:367:18: ~ ( '\\\\' | '\\n' | '\\'' )
+                    	    // smx.g:367:18: ~ ( '\\\\' | '\\n' | '\\'' )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -730,8 +730,8 @@ public class smxLexer extends Lexer {
     // $ANTLR start ESC
     public final void mESC() throws RecognitionException {
         try {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:371:13: ( '\\\\' . )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:371:17: '\\\\' .
+            // smx.g:371:13: ( '\\\\' . )
+            // smx.g:371:17: '\\\\' .
             {
             match('\\'); 
             matchAny(); 
@@ -747,8 +747,8 @@ public class smxLexer extends Lexer {
     // $ANTLR start PCHAR
     public final void mPCHAR() throws RecognitionException {
         try {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:372:15: (~ ( NL | ' ' | '\\t' | '\"' | '\\'' | WAKA | SYMBOL | HASH | EQ | '&' ) )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:372:17: ~ ( NL | ' ' | '\\t' | '\"' | '\\'' | WAKA | SYMBOL | HASH | EQ | '&' )
+            // smx.g:372:15: (~ ( NL | ' ' | '\\t' | '\"' | '\\'' | WAKA | SYMBOL | HASH | EQ | '&' ) )
+            // smx.g:372:17: ~ ( NL | ' ' | '\\t' | '\"' | '\\'' | WAKA | SYMBOL | HASH | EQ | '&' )
             {
             if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\u001F')||input.LA(1)=='!'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u007F' && input.LA(1)<='\uFFFE') ) {
                 input.consume();
@@ -772,8 +772,8 @@ public class smxLexer extends Lexer {
     // $ANTLR start SYMBOL
     public final void mSYMBOL() throws RecognitionException {
         try {
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:375:7: ( ( '$' | '%' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '?' | '@' | '[' | '\\\\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~' ) )
-            // /Users/robertiannucci/antlr/test/smx10/smx.g:375:9: ( '$' | '%' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '?' | '@' | '[' | '\\\\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~' )
+            // smx.g:375:7: ( ( '$' | '%' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '?' | '@' | '[' | '\\\\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~' ) )
+            // smx.g:375:9: ( '$' | '%' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '?' | '@' | '[' | '\\\\' | ']' | '^' | '_' | '`' | '{' | '|' | '}' | '~' )
             {
             if ( (input.LA(1)>='$' && input.LA(1)<='%')||(input.LA(1)>='(' && input.LA(1)<='/')||(input.LA(1)>=':' && input.LA(1)<='<')||(input.LA(1)>='?' && input.LA(1)<='@')||(input.LA(1)>='[' && input.LA(1)<='`')||(input.LA(1)>='{' && input.LA(1)<='~') ) {
                 input.consume();
@@ -795,7 +795,7 @@ public class smxLexer extends Lexer {
     // $ANTLR end SYMBOL
 
     public void mTokens() throws RecognitionException {
-        // /Users/robertiannucci/antlr/test/smx10/smx.g:1:8: ( WS | NL | SYMBOLS | NAME | WAKA | AND | EQ | HASH | STRING )
+        // smx.g:1:8: ( WS | NL | SYMBOLS | NAME | WAKA | AND | EQ | HASH | STRING )
         int alt11=9;
         int LA11_0 = input.LA(1);
 
@@ -834,63 +834,63 @@ public class smxLexer extends Lexer {
         }
         switch (alt11) {
             case 1 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:10: WS
+                // smx.g:1:10: WS
                 {
                 mWS(); 
 
                 }
                 break;
             case 2 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:13: NL
+                // smx.g:1:13: NL
                 {
                 mNL(); 
 
                 }
                 break;
             case 3 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:16: SYMBOLS
+                // smx.g:1:16: SYMBOLS
                 {
                 mSYMBOLS(); 
 
                 }
                 break;
             case 4 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:24: NAME
+                // smx.g:1:24: NAME
                 {
                 mNAME(); 
 
                 }
                 break;
             case 5 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:29: WAKA
+                // smx.g:1:29: WAKA
                 {
                 mWAKA(); 
 
                 }
                 break;
             case 6 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:34: AND
+                // smx.g:1:34: AND
                 {
                 mAND(); 
 
                 }
                 break;
             case 7 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:38: EQ
+                // smx.g:1:38: EQ
                 {
                 mEQ(); 
 
                 }
                 break;
             case 8 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:41: HASH
+                // smx.g:1:41: HASH
                 {
                 mHASH(); 
 
                 }
                 break;
             case 9 :
-                // /Users/robertiannucci/antlr/test/smx10/smx.g:1:46: STRING
+                // smx.g:1:46: STRING
                 {
                 mSTRING(); 
 

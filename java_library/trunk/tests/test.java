@@ -9,7 +9,7 @@ public class test {
 
     public static void main(String args[]) throws Exception {
         System.out.println("Lexing");
-        smxLexer lex = new smxLexer(new ANTLRFileStream("tst_input.txt"));
+        smxLexer lex = new smxLexer(new ANTLRFileStream("tests/tst_input.txt"));
         System.out.println("Tokenizing");
         CommonTokenStream tokens = new CommonTokenStream(lex);
 
