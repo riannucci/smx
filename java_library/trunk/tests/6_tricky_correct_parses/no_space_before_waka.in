@@ -1,0 +1,5 @@
+node >
+ data for node
+ i > Some data surrounded by i
+ """Some string data for node"""
+ d> 'Some string data surrounded by d'
