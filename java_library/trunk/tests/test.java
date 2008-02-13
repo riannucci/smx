@@ -23,7 +23,7 @@ public class test {
 
       OutputFormat format = new OutputFormat(d);
       format.setIndenting(true);
-      XMLSerializer serializer = new XMLSerializer(System.err, format);
+      XMLSerializer serializer = new XMLSerializer(System.out, format);
       serializer.serialize(d);
     }
 }

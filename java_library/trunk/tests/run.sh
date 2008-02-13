@@ -1,8 +1,8 @@
 #!/bin/bash
 
-for dir in tests/[123456]*
+for dir in tests/[1234567]*
 do
-   if [ $dir == '[123456]*' ] 
+   if [ $dir == '[1234567]*' ] 
    then
       exit 1 
    fi
@@ -13,8 +13,8 @@ do
       then
          continue
       fi
-      echo $tf
-      java -cp classes:libs/antlr-runtime-3.0.1.jar:libs/xerces.jar:libs/antlr-3.0.1.jar:libs/stringtemplate-3.1b1.jar:libs/antlr-2.7.7.jar test < $tf 2> tests/out >> tests/log
+      echo $tf | tee -a tests/log
+      java -cp classes:libs/antlr-runtime-3.0.1.jar:libs/xerces.jar:libs/antlr-3.0.1.jar:libs/stringtemplate-3.1b1.jar:libs/antlr-2.7.7.jar test < $tf > tests/out 2>> tests/log
       if [ $? -ne 0 ]
       then
          exit 2

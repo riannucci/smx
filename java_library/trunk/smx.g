@@ -50,7 +50,7 @@ tokens {
 	public Node makeEnt(List<Taglet> l, Node root) {
 		for(Taglet t : l) {
 			// TODO: Namespace
-			System.out.println("Adding element "+t.name);
+			System.err.println("Adding element "+t.name);
 			Element el = curdoc.createElement(t.name);
 			
 			for (Map.Entry<String,String> atr : t.attrs.entrySet()) {
@@ -65,7 +65,7 @@ tokens {
 	public Taglet apply(Taglet t, ContextObj ctx) {
 		// order merge(global, local, this)
 		String name = null;
-		System.out.println("Applying ctx to "+t.name);
+		System.err.println("Applying ctx to "+t.name);
 		Map<String,String> atrs = new HashMap<String,String>();
 		
 		if(!ctx.ignore_global) {
@@ -92,7 +92,7 @@ tokens {
 	
 		t.name = name == null ? t.name : name;
 		t.attrs = atrs;
-		System.out.println("\tResulted in "+t.name);
+		System.err.println("\tResulted in "+t.name);
 		return t;
 	}
 	
@@ -168,7 +168,7 @@ tokens {
 		
 		public Taglet(Tree p) {
 			name = p.getChild(0).getChild(0).getText();
-			System.out.println("Created taglet " + name);
+			System.err.println("Created taglet " + name);
 			Tree atrs = p.getChild(1);
 			attrs = new HashMap<String, String>();
 			for(int i = 0; i < atrs.getChildCount(); i++) {
@@ -176,7 +176,7 @@ tokens {
 				String nam = t.getChild(0).getText();
 				String val = t.getChild(1).getText();
 				attrs.put(nam, val);
-				System.out.println("\t"+nam+"="+val);
+				System.err.println("\t"+nam+"="+val);
 			}
 		}
 	}
@@ -236,7 +236,7 @@ smx[DocumentBuilderFactory dbf]returns [Document retdoc]
 				closer += cls.getChild(i);
 			}
 			if(nam.equals("config") && closer.equals("smx>")) {
-				System.out.println("Found smx config");
+				System.err.println("Found smx config");
 				has_smx_tag = true;
 				Document tmp = $retdoc;
 				curdoc = db.newDocument();
@@ -247,7 +247,7 @@ smx[DocumentBuilderFactory dbf]returns [Document retdoc]
 	}
 	}
 	({has_smx_tag}?=> 
-		{System.out.println("Parsing real document...");} b=line[new ContextObj(), curdoc ]
+		{System.err.println("Parsing real document...");} b=line[new ContextObj(), curdoc ]
 	)?
  	EOF
  	-> {has_smx_tag}? $b
@@ -263,7 +263,7 @@ line[ContextObj ctx, Node n]
 dot: ~NL*;
 comment[Node n]
 @after{
-	System.out.println("Adding Comment...");
+	System.err.println("Adding Comment...");
 	n.appendChild(curdoc.createComment($d.text));
 }:	HASH+ WS d=dot NL -> ;// ^(COMMENT dot); 
 
@@ -276,19 +276,20 @@ children[int level, ContextObj ctx, Node n] returns [int num]
 data[Node n]: data_sub[n] (comment[n] | NL) -> ; // ^(DATA data_sub) comment?;
 data_sub[Node n]
 @after {
-	System.out.println("Adding Text Node: "+$data_sub.text);
+	System.err.println("Adding Text Node: "+$data_sub.text);
 	n.appendChild(curdoc.createTextNode($data_sub.text));
 }: STRING  | ~(NL|WS|WAKA|HASH|STRING) ~(NL|HASH|WAKA)*;
 
 dtag[ContextObj ctx, Node n]
 @after {;
 	if($c.text.equals("C>")) {
-		System.out.println("Adding CDATA Node");
+		System.err.println("Adding CDATA Node");
 		n.appendChild(curdoc.createCDATASection($d.text));
 	} else if($c.text.equals("\%>") && $nam.text != null) {
-		System.out.println("Adding PI Node");
+		System.err.println("Adding PI Node");
 		n.appendChild(curdoc.createProcessingInstruction($nam.text, $d.text));
 	} else {
+		System.err.println("Got dtag with tag '"+ $c.text + "'");
 		throw new RecognitionException();
 	}
 }: (nam=NAME WS)? d=STRING WS? c=closer -> ; // ^(DTAG ^(NAM $nam?) STRING closer );
