@@ -8,31 +8,23 @@ import org.apache.xml.serialize.*;
 public class test {
 
     public static void main(String args[]) throws Exception {
-        System.out.println("Lexing");
-        smxLexer lex = new smxLexer(new ANTLRFileStream("tests/tst_input.txt"));
-        System.out.println("Tokenizing");
+        smxLexer lex = new smxLexer(new  ANTLRInputStream(System.in));
         CommonTokenStream tokens = new CommonTokenStream(lex);
 
-        System.out.println("Creating Parser");
         smxParser g = new smxParser(tokens);
         Document d = null;
 
         try {
-            System.out.println("Parsing");
             d = g.smx(new DocumentBuilderFactoryImpl()).retdoc;
         } catch (RecognitionException e) {
             e.printStackTrace();
         }
 
 
-      System.out.println("XML Ouput: \n\n\n<!--Begin-->");
-
       OutputFormat format = new OutputFormat(d);
       format.setIndenting(true);
-      XMLSerializer serializer = new XMLSerializer(System.out, format);
+      XMLSerializer serializer = new XMLSerializer(System.err, format);
       serializer.serialize(d);
-
-      System.out.println("\n<!--End-->");
     }
 }
 

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>data for node<i>Some data surrounded by i</i>Some string data for
+        node<d>Some string data surrounded by d</d>
+</node>

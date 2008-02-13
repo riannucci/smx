@@ -7,4 +7,4 @@ build:
 	javac $(CP) tests/test.java smx*.java -d classes
 
 run:
-	java $(CP) test 
+	tests/run.sh 
