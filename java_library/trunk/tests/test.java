@@ -17,7 +17,8 @@ public class test {
         try {
             d = g.smx(new DocumentBuilderFactoryImpl()).retdoc;
         } catch (RecognitionException e) {
-            e.printStackTrace();
+            System.err.println("Caught Exception, exiting...");
+            System.exit(1);
         }
 
 

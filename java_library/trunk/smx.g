@@ -22,6 +22,8 @@ tokens {
 	TAGLET;
 }
 
+@rulecatch {catch (RecognitionException e) {throw e;}}
+
 @header {
 	import org.w3c.dom.*;
 	import javax.xml.parsers.*;
@@ -297,10 +299,12 @@ dtag[ContextObj ctx, Node n]
 taglet: (n=NAME WS)? attribs -> ^(TAGLET ^(NAM $n?) attribs);
 tag[int level, ContextObj ctx, Node n]
 @init { boolean star=true; ContextObj ctx_new = ctx; Node ths = n; }
-@after {allow_smx_tag=false; // guarnatees that only first line can be smx> 
-}:
+@after {allow_smx_tag=false;}: // guarnatees that only first line can be smx> 
 	  ts+=taglet (AND WS? ts+=taglet)* closer
+	  {$closer.type == SCLOSER || $closer.type == DSCLOSER ||
+	  ($closer.text.equals(">") || (allow_smx_tag && $closer.text.equals("smx>")))}?
 	  {
+	  	System.err.println("Got closer '" + $closer.text + "'");
 	  	if ($closer.type == SCLOSER || $closer.type == DSCLOSER) {
 	  		if(list_ts.size() == 1) {
 	  			Taglet pattern = new Taglet(((taglet_return)list_ts.get(0)).tree);
@@ -322,8 +326,6 @@ tag[int level, ContextObj ctx, Node n]
 			ctx_new.attribs = null;
 			
 			star = false;
-		}else {
-			throw new RecognitionException();
 		}
 	  } 
 	  (({!star}?=> WS? data[ths]) | children[level, ctx_new, ths])
@@ -331,9 +333,12 @@ tag[int level, ContextObj ctx, Node n]
 	  // error check.. star and no children?
 	  { if(star && $children.num <= 0) throw new RecognitionException(); }
   -> ; 
-  //{!star}? {solidify(list_ts, $children.tree, ctx)}
-  //-> children?; // these are the potentially modified children
-
+  catch [FailedPredicateException ex] {
+  	System.err.println("Invalid tag closer type detected!");
+  	System.err.println(ex);
+  	throw ex;
+  }
+  
 attribs:	(a+=attr WS?)* -> ^(ATTRIBS $a*);
 attr:		NAME WS? EQ WS? (v+=(SYMBOLS|HASH|BANG)* v+=SYMBOL | v+=STRING) 
 		    -> ^(ATTR NAME $v+);
