@@ -1,5 +1,6 @@
 " Vim folding file
 " Language:	SMX
+" Filenames: *.smx
 " Author:	Jorrit Wiersma (foldexpr), Max Ischenko (foldtext), Robert
 " Ames (line counts), Robert Iannucci (Conversion to SMX)
 " Last Change:	2008 Feb 19 

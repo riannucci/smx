@@ -1,5 +1,5 @@
 " Vim syntax file
-" Language:     SMX (SiMpleX or Simple Markup for XML)
+" Language:     SMX
 " Maintainer:   Robert Iannucci Jr. <riannucc@calpoly.edu>
 " Last Change:  13 March 2007 18:21:00 PST
 " Filenames:    *.smx
