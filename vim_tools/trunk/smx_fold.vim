@@ -41,65 +41,28 @@ endfunction
 
 
 function! GetSMXFold(lnum)
-    " Determine folding level in Python source
-    "
     let line = getline(a:lnum)
-    let ind  = indent(a:lnum)
+    let pind = indent(prevnonblank(a:lnum - 1))
+    let tind = indent(a:lnum)
+    let nxt = getline(nextnonblank(a:lnum + 1))
+    let nind = indent(nextnonblank(a:lnum + 1))
+    let lvl = tind / &sw 
 
-    " Ignore blank lines
-    if line =~ '^\s*$'
-	return "="
+    if line =~ '^\s*$' || line !~ '>\s*$'
+       return "="
     endif
 
-    " Ignore triple quoted strings
-    if line =~ "(\"\"\"|''')"
-	return "="
-    endif
 
-    " Classes and functions get their own folds
     if line =~ '>\s*$'
-	return ">" . (ind / &sw + 1)
+       if nind > tind 
+          return '>'.(lvl + 1)
+       elseif pind > tind || nind < tind
+          return lvl
+       endif
+    elseif nind == -1
+       return lvl + 1
     endif
 
-    let pnum = prevnonblank(a:lnum - 1)
-
-    if pnum == 0
-	" Hit start of file
-	return 0
-    endif
-
-    " If the previous line has foldlevel zero, and we haven't increased
-    " it, we should have foldlevel zero also
-    if foldlevel(pnum) == 0
-	return 0
-    endif
-
-    " The end of a fold is determined through a difference in indentation
-    " between this line and the next.
-    " So first look for next line
-    let nnum = nextnonblank(a:lnum + 1)
-    if nnum == 0
-	return "="
-    endif
-
-    " Python programmers love their readable code, so they're usually
-    " going to have blank lines at the ends of functions or classes
-    " If the next line isn't blank, we probably don't need to end a fold
-    if nnum == a:lnum + 1
-	return "="
-    endif
-
-    " If next line has less indentation we end a fold.
-    " This ends folds that aren't there a lot of the time, and this sometimes
-    " confuses vim.  Luckily only rarely.
-    let nind = indent(nnum)
-    if nind < ind
-	return "<" . (nind / &sw + 1)
-    endif
-
-    " If none of the above apply, keep the indentation
-    return "="
-
+    return '='
 endfunction
-
 
