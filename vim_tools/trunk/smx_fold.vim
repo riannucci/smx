@@ -44,7 +44,6 @@ function! GetSMXFold(lnum)
     let line = getline(a:lnum)
     let pind = indent(prevnonblank(a:lnum - 1))
     let tind = indent(a:lnum)
-    let nxt = getline(nextnonblank(a:lnum + 1))
     let nind = indent(nextnonblank(a:lnum + 1))
     let lvl = tind / &sw 
 

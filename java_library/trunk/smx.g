@@ -272,6 +272,8 @@ comment[Node n]
 
 children[int level, ContextObj ctx, Node n] returns [int num]
 @init{$num=0;}:
+	 // TODO: Append comments
+	 // TODO: Allow space in-between children (this might actually work atm...)
 	 WS? (childs+=comment[n] | NL) (WS? NL)*
 	 ({lvlPreCheck(level)}?=> {$num++;} childs+=line[ctx, n])* -> $childs*;
  
@@ -280,6 +282,7 @@ data_sub[Node n]
 @after {
 	System.err.println("Adding Text Node: "+$data_sub.text);
 	n.appendChild(curdoc.createTextNode($data_sub.text));
+	// TODO: append comment
 }: STRING  | ~(NL|WS|WAKA|HASH|STRING) ~(NL|HASH|WAKA)*;
 
 dtag[ContextObj ctx, Node n]
